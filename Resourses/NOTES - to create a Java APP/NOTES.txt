@@ -1,0 +1,31 @@
+fOR java, it is important to "compile" a program before 'Run' LIKE C & C++ Languages.
+
+1- First Check Either Java is Installed Or NOT
+
+ <=**=> For Installed Users: 
+               ------------------------------
+
+- in CMD, type => java -version
+- Open an empty file in NotePad and Write Basic Code to Print "Greetings" by using This Below Code
+===================================
+class Program1 {
+	public static void main(String[] args) {
+		System.out.println("Hi, We are glab to see you here!");
+	}
+} 
+===================================
+then
+- In CMD, type => set path=C:\Program Files\Java\jdk-16.0.2\bin        OR       Where your File is Saved OR JDK eXISTS.
+- Then Go to the Directory you wrote this Java Program.
+- In CMD, type => javac program1.java      
+It will compile the Code.     &      It will genrate a class File of Code you have written
+- In CMD, type => java Program1 
+It will run your Code and You will see the Output on your Console.
+
+====================>>>>>>   "You Have SuccessFully Created Your First Java Program"
+
+
+<=**=> For uninstalled Users: 
+             ------------------------------------
+
+-- no Steps YET.
