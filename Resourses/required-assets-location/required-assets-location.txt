@@ -1,0 +1,4 @@
+1- C:\Program Files (x86)\MySQL\Connector J 8.0\mysql-connector-java-8.0.28\mysql-connector-java-8.0.28    ----   ConnectorJ .JAR File
+1B - C:\Program Files\Java    ----  also for   ----   ConnectorJ .JAR File
+____________________
+2- C:\Program Files\Java

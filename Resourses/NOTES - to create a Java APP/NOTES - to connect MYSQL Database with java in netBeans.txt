@@ -1,0 +1,36 @@
+** Netbeans have 3 types of projects creation
+	1- Ant 
+	2- Gradle
+	3- Maven
+
+** For MYSQL 
+-  You need to Create a database in any MYSQL Software ( SQLYog, MYSQL WorkBench).
+-  What you need is Connector J which will have * mysql-connector-java-*.jar * of anyVersion of that time -> to import in Your CLASSPATH.
+-  Connector you can download from "https://dev.mysql.com/downloads/connector/j/" select Operating System *Platform Independent* Download ZIP File, Extract it ]] [[ - this will use in *Gradle Type 	Project* ]].
+- CLASSPATH = Add in 2 places 
+		1- In environment Variables
+		2- The Netbeans-project-Type Libraries. 
+			i- FOR Ant => project *Libraries* folder => Right-click to add JAR/Folder => browse to Your downloaded Path of Connector/j .jar File we have already downloaded.
+					-  reload project and run the main File which has main Function.
+                                              _____________________________________________________________________________________________________________________________
+			ii- FOR Gradle => A (CDN-Way)- visit URL "https://search.maven.org/artifact/mysql/mysql-connector-java" - for specific version USE/COPY "Gradle Groovy DSL" COMMAND in your 						project's file-Path = "Build Scripts\build.gradle" in 
+						dependencies { 
+							...
+							( Statement will be Like This) => implementation 'mysql:mysql-connector-java:8.0.29' 
+						}
+					- reload project and run the main File which has main Function.
+				            B (Downloaded-File-Way)- Create a folder in project name 'lib' and paste file of .jar in it.
+						then add *implementation fileTree(dir: 'lib', include: 'mysql-connector-java-8.0.28.jar')* in you "build.gradle" file
+					- reload project and run the main File which has main Function.
+                                              _____________________________________________________________________________________________________________________________
+			iii- For Maven => A (CDN-Way) - Visit URL "https://search.maven.org/artifact/mysql/mysql-connector-java" - for specific version USE/COPY "Apache Maven"
+					Like This  <dependency>
+  							<groupId>mysql</groupId>
+  							<artifactId>mysql-connector-java</artifactId>
+ 							<version>8.0.29</version>
+						</dependency>
+					- in project *Dependecies* Folder right-click on it and select *Add Dependency* Fill these above mentioned Values in Required Feilds and Click 						*Add* to add that dependency.
+					- reload project and run the main File which has main Function.
+				           B (Downloaded-File-Way) - In project, (right click on ...connector-java-...* .jar file in Dependencies) and select *Manually install Artifact* OPTION and 						then browse to the downloaded File Path & Press *Install Locally*.
+					- - reload project and run the main File which has main Function.
+	_______________________________________________________________________________________________________________________________________
