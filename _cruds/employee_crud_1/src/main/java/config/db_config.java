@@ -53,4 +53,7 @@ public class db_config {
     public Connection getConnection() {
         return conn;
     }
+    public String getAuthorization() {
+        return this.password;
+    }
 }

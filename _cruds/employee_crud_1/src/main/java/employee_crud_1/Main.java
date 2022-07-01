@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import config.db_config;
 import helpers.sql_function;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.util.Scanner;
 
 /**
  *
@@ -22,14 +22,32 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    private static Object create_connection;
+    private static Object create_connection;    
     public static void main(String[] args) throws SQLException {
        
         // Create Connection by Calling Custom function from db_config.java
         db_config config_object = new db_config();
         config_object.db_config();
+        
+        String key = config_object.getAuthorization();
+        System.out.println(key);
+        
+        Scanner run_CRUD_permission = new Scanner(System.in);
+        System.out.println("\nEnter your MySQL root User's password from port 3310 : Root0)00");
+        
+        String inputPassword = run_CRUD_permission.nextLine();
 
-        sql_function DB = new sql_function();
+        if(inputPassword == key) {
+            // All crud Mthods 
+            CRUD_Methods(config_object);
+        } else {
+            System.out.println("\nEither you don't have permission OR you have written a wrong Password.");
+        }
+    
+    }
+    
+    public static void CRUD_Methods(db_config config_object) throws SQLException {
+         sql_function DB = new sql_function();
         String select_query = "SELECT emp.* from `employees` as emp WHERE emp.`first_name` = 'Perry'";
         
         // getting resultSet Type Data in ResultSET Type Variable.
@@ -78,10 +96,10 @@ public class Main {
         }
          
         checkSelect(DB, config_object.getConnection());
-    
     }
-        // After Change in DB check the Whole Data,
-            // This Function will repeatedly Work So I have cretaed  a Function for it.
+    
+    // After Change in DB check the Whole Data,
+    // This Function will repeatedly Work So I have cretaed  a Function for it.
     public static void checkSelect(sql_function DB, Connection conn) throws SQLException {
         String select_check_query = "SELECT * from employees";
         ResultSet rs_check = (ResultSet) DB.basic_select_to_db(select_check_query, conn);
