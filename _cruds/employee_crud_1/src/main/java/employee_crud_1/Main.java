@@ -29,14 +29,18 @@ public class Main {
         db_config config_object = new db_config();
         config_object.db_config();
         
+        // Get Password
         String key = config_object.getAuthorization();
         System.out.println(key);
         
+        // Input password from User
         Scanner run_CRUD_permission = new Scanner(System.in);
         System.out.println("\nEnter your MySQL root User's password from port 3310 : Root0)00");
         
+        // Read Input
         String inputPassword = run_CRUD_permission.nextLine();
 
+        // Verify either input matches or not!
         if(inputPassword == key) {
             // All crud Mthods 
             CRUD_Methods(config_object);
@@ -51,7 +55,7 @@ public class Main {
         String select_query = "SELECT emp.* from `employees` as emp WHERE emp.`first_name` = 'Perry'";
         
         // getting resultSet Type Data in ResultSET Type Variable.
-        ResultSet rs = (ResultSet) DB.basic_select_to_db(select_query, config_object.getConnection());
+            ResultSet rs = (ResultSet) DB.basic_select_to_db(select_query, config_object.getConnection());
         
         
         DisplaySelectedData(rs);
